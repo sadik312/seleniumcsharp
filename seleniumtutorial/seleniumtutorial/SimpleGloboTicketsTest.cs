@@ -41,9 +41,6 @@ namespace seleniumtutorial
         [Test]
         public void UsingRelativeLocators()
         {
-            var driver = new ChromeDriver();
-            driver.Manage().Window.Size = new Size(1920, 1080);
-            driver.Navigate().GoToUrl("http://localhost:4200");
             // use relative locator
             driver.FindElement(RelativeBy
                 .WithLocator(By.TagName("textarea"))
@@ -57,6 +54,16 @@ namespace seleniumtutorial
                 .First()
                 .Click();
 
+        }
+        [Test]
+        public void TestWithAssertion()
+        {
+            driver.FindElement(By.Id("full-name")).SendKeys("John Smith");
+            driver.FindElement(By.Id("add-btn")).Click();
+
+            // are equal / are not equal = used to assert values
+            var totalPrice = driver.FindElement(By.CssSelector("tfoot tr th:nth-child(3"));
+            Assert.That(totalPrice.Text, Is.EqualTo("$100.00"), "Total price is not valid");
         }
         [TearDown]
         public void TearDown()
