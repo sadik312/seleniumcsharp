@@ -22,6 +22,14 @@ namespace seleniumtutorial
             driver.Manage().Window.Size = new Size(1920, 1080);
             // navigate to url of test app
             driver.Navigate().GoToUrl("http://localhost:4200");
+
+            /* can also use:
+             driver.Url = "http://localhost:4200";
+            however, Navigate func is preferrable for more functions like:
+            driver.Navigate().Refresh();
+            driver.Navigate().Back();
+            driver.Navigate().Forward();
+            */
         }
         [Test]
         public void SimpleTest()
