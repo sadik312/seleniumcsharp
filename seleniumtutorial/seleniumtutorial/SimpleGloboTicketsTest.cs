@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 using OpenQA.Selenium;
+using NuGet.Frameworks;
 
 namespace seleniumtutorial
 {
@@ -31,6 +32,13 @@ namespace seleniumtutorial
             driver.Navigate().Forward();
             */
         }
+        [Test]
+        public void VerifyCurrentURl()
+        {
+            Assert.That(driver.Url, Contains.Substring("http://localhost:4200"));
+            // where driver.Url can be used to verify url of target being tested
+        }
+
         [Test]
         public void SimpleTest()
         {
