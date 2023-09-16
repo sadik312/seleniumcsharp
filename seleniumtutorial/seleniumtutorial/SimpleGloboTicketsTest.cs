@@ -84,6 +84,12 @@ namespace seleniumtutorial
         [Test]
         public void usingClickTest()
         {
+            /*
+            Click command will only succeed if:
+            - Element if visible
+            - Not disabled
+            - Not placed under another element
+            */
             var nameInput = driver.FindElement(By.Id("full-name"));
             nameInput.SendKeys("John Smith");
 
