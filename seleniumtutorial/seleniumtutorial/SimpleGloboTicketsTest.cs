@@ -25,7 +25,7 @@ namespace seleniumtutorial
             driver.Navigate().GoToUrl("http://localhost:4200");
 
             /* can also use:
-             driver.Url = "http://localhost:4200";
+            driver.Url = "http://localhost:4200";
             however, Navigate func is preferrable for more functions like:
             driver.Navigate().Refresh();
             driver.Navigate().Back();
@@ -80,6 +80,16 @@ namespace seleniumtutorial
             // are equal / are not equal = used to assert values
             var totalPrice = driver.FindElement(By.CssSelector("tfoot tr th:nth-child(3"));
             Assert.That(totalPrice.Text, Is.EqualTo("$100.00"), "Total price is not valid");
+        }
+        [Test]
+        public void usingClickTest()
+        {
+            var nameInput = driver.FindElement(By.Id("full-name"));
+            nameInput.SendKeys("John Smith");
+
+            var addButton = driver.FindElement(By.Id("add-btn"));
+            addButton.Click();
+            Assert.That(driver.FindElements(By.CssSelector("tbody tr")), Has.Count.EqualTo(1));
         }
         [TearDown]
         public void TearDown()
