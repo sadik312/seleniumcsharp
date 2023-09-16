@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Drawing;
 using OpenQA.Selenium;
 using NuGet.Frameworks;
+using OpenQA.Selenium.Interactions;
 
 namespace seleniumtutorial
 {
@@ -103,6 +104,12 @@ namespace seleniumtutorial
             // Double click command is not present in WebDriver interface
             // Need to use another interface that exposes the action of double click
             // Called 'Actions'
+
+            var addButton = driver.FindElement(By.Id("add-btn"));
+            var actions = new Actions(driver);
+            actions.DoubleClick(addButton).Perform();
+
+            Assert.That(driver.FindElement(By.Id("full-name_validation-error")).Displayed, Is.True);
         }
         [TearDown]
         public void TearDown()
