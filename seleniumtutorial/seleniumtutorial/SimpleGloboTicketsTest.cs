@@ -97,6 +97,13 @@ namespace seleniumtutorial
             addButton.Click();
             Assert.That(driver.FindElements(By.CssSelector("tbody tr")), Has.Count.EqualTo(1));
         }
+        [Test]
+        public void UsingDoubleClickTest()
+        {
+            // Double click command is not present in WebDriver interface
+            // Need to use another interface that exposes the action of double click
+            // Called 'Actions'
+        }
         [TearDown]
         public void TearDown()
         {
